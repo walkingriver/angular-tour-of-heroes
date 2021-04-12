@@ -6,8 +6,12 @@ import { Component } from '@angular/core';
     <h1>{{title}}</h1>
     <div class="header-bar"></div>
     <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      <a kendoButton routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a kendoButton routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    <kendo-buttongroup>
+      <button kendoButton>Dashboard</button>
+      <button kendoButton>Heroes</button>
+    </kendo-buttongroup>
     </nav>
     <router-outlet></router-outlet>
   `,
