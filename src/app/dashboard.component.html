@@ -1,9 +1,24 @@
+
 <h3>Top Heroes</h3>
-<div class="grid grid-pad">
-  <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="col-1-4">
-    <div class="module hero">
+<div class="card-wrapper">
+  <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)">
+    <!-- <div class="module hero">
       <h4>{{hero.name}}</h4>
-    </div>
+    </div> -->
+
+    <!-- kendo card here please and thanks -->
+
+    <kendo-card>
+      <a routerLink="/detail/{{hero.id}}">
+        <kendo-card-header class="k-hbox">
+          <div>
+            <h3 kendoCardTitle>{{ hero.name }}</h3>
+          </div>
+        </kendo-card-header>
+        <img src="../assets/retro-mlp/pinkie-pie.png" [alt]="hero.name" />
+      </a>
+    </kendo-card>
+
   </div>
 </div>
 <my-hero-search></my-hero-search>

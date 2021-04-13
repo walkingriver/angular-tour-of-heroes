@@ -1,7 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'src/assets/variables.scss';
+@import '~@progress/kendo-theme-default/scss/button/_index.scss';
 
+// @import "~@progress/kendo-theme-default/dist/all.scss";
 h2 { color: #444; font-weight: lighter; }
 body { margin: 2em; }
 body, input[text], button { color: #888; font-family: Cambria, Georgia; }
 button { padding: 0.2em; font-size: 14px}
 * { font-family: Arial; }
+
+body {
+  p { 
+    background-color: $hot-pink;
+  }
+}
