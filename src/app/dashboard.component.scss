@@ -1,0 +1,31 @@
+$spacing: 20px;
+
+/* border-box "include my padding in my h/w calculation */
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h3 {
+  text-align: center; 
+  margin-bottom: $spacing;
+}
+
+.hero-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  // grid-gap: 20px; find out why this happens
+  gap: $spacing;
+}
+
+.hero-card {
+  background-color: blue;
+  color: white;
+  min-width: 130px;
+  min-height: 170px;
+  // margin: 10px 0;
+  margin-bottom: $spacing;
+  text-align: center;
+}

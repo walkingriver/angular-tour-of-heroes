@@ -128,7 +128,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "my",
-      "style": "css"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "my"
