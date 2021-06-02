@@ -1,4 +1,5 @@
 $spacing: 20px;
+$purple: #ac66cc;
 
 /* border-box "include my padding in my h/w calculation */
 *, *:after, *:before {
@@ -21,10 +22,10 @@ h3 {
 }
 
 .hero-card {
-  background-color: blue;
-  color: white;
-  min-width: 130px;
-  min-height: 170px;
+  // background-color: $purple;
+  // color: white;
+  // min-width: 130px;
+  // min-height: 170px;
   // margin: 10px 0;
   margin-bottom: $spacing;
   text-align: center;

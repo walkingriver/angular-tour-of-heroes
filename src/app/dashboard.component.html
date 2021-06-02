@@ -2,7 +2,13 @@
 <div class="hero-cards-wrapper">
 
   <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="hero-card">
-    <h4>{{hero.name}}</h4>
+    <kendo-card [orientation]="'horizontal'" [width]="cardWidth">
+      <div class="k-vbox">
+        <kendo-card-header>
+          <h4 kendoCardTitle>{{hero.name}}</h4>
+        </kendo-card-header>
+      </div>
+    </kendo-card>
   </div>
 
 </div>
