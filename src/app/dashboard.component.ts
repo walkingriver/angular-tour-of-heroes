@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
@@ -10,7 +12,7 @@ import { HeroService } from './hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroes: Observable<Hero[]>;
 
   constructor(
     private router: Router,
@@ -18,12 +20,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroes =
+      this.heroService.getHeroes()
+        .pipe(tap((x: Hero[]) => {
+          console.log(x);
+        }));
   }
 
-  gotoDetail(hero: Hero): void {
+  gotoDetail(hero: Hero) {
     const link = ['/detail', hero.id];
-    this.router.navigate(link);
+    return this.router.navigate(link);
   }
 }

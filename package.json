@@ -23,7 +23,8 @@
     "@angular/platform-browser-dynamic": "12.0.2",
     "@angular/router": "12.0.2",
     "angular-in-memory-web-api": "0.9.0",
-    "rxjs": "6.5.5",
+    "@ionic/angular": "^5.5.2",
+    "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
@@ -32,6 +33,7 @@
     "@angular/cli": "~12.0.2",
     "@angular/compiler-cli": "~12.0.2",
     "@angular/language-service": "~12.0.2",
+    "@ionic/angular-toolkit": "^4.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",

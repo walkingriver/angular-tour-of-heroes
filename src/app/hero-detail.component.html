@@ -1,11 +1,45 @@
-<div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name" />
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
-</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons *ngIf="navigated" slot="start">
+      <ion-back-button defaultHref="/heroes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{hero?.name}} Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="hero">
+    <img *ngIf="navigated" style="width:100%; size:'cover'; margin-left: auto;"
+      src="https://d2ph5fj80uercy.cloudfront.net/06/cat{{hero.id}}.jpg" />
+    <ion-list>
+      <ion-item>
+        <ion-label>id: {{hero.id}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Name:</ion-label>
+        <ion-input [(ngModel)]="hero.name"
+          placeholder="name"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button *ngIf="!navigated" (click)="cancel()" color="danger">
+          Cancel
+        </ion-button>
+        <ion-button (click)="save()" width="full">
+          <ion-icon slot="start"
+            name="save"></ion-icon>
+          Save
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+
+  </ion-toolbar>
+</ion-footer>

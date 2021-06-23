@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Hero } from './hero';
+import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
 
 @Component({
@@ -15,7 +17,10 @@ export class HeroesComponent implements OnInit {
   error: any;
   showNgFor = false;
 
-  constructor(private router: Router, private heroService: HeroService) {}
+  constructor(
+    private modal: ModalController,
+    private router: Router,
+    private heroService: HeroService) { }
 
   getHeroes(): void {
     this.heroService
@@ -26,9 +31,17 @@ export class HeroesComponent implements OnInit {
       )
   }
 
-  addHero(): void {
+  async addHero() {
     this.addingHero = true;
     this.selectedHero = null;
+    const adder = await this.modal.create({
+      component: HeroDetailComponent,
+      backdropDismiss: false
+    });
+
+    await adder.present();
+    const { data } = await adder.onDidDismiss();
+    this.close(data.hero);
   }
 
   close(savedHero: Hero): void {

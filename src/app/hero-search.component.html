@@ -1,6 +1,6 @@
 <div id="search-component">
-  <h4>Hero Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ion-searchbar #searchBox placeholder="Hero Search" type="text" (ionChange)="search($event.value)" [debounce]="250" showCancelButton="always"></ion-searchbar>
+
   <div>
     <div *ngFor="let hero of heroes | async"
          (click)="gotoDetail(hero)" class="search-result" >

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
@@ -16,8 +17,9 @@ export class HeroDetailComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
+    private modal: ModalController,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
@@ -35,8 +37,18 @@ export class HeroDetailComponent implements OnInit {
   save(): void {
     this.heroService.save(this.hero).subscribe(hero => {
       this.hero = hero; // saved hero, w/ id if new
-      this.goBack(hero);
+      if (this.navigated) {
+        this.goBack(hero);
+      } else {
+        this.modal.dismiss({ hero });
+      }
     }, error => (this.error = error)); // TODO: Display error message
+  }
+
+  cancel() {
+    this.modal.dismiss({
+      hero: null
+    });
   }
 
   goBack(savedHero: Hero = null): void {
